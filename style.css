@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    font-family: "Sixtyfour", sans-serif;
+    color: #C07000;
+    font-size: 50px;
+    text-align: center;
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 0 10px #C07000, 0 0 20px #C07000; }
+    50% { text-shadow: 0 0 20px #C07000, 0 0 40px #C07000; }
+}
