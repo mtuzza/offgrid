@@ -5,8 +5,7 @@
 }
 
 body {
-    background: #080602;
-    background-image: radial-gradient(ellipse at center, #211506 0%, #080602 65%);
+    background: #080602 radial-gradient(ellipse at center, #211506 0%, #080602 65%);
 }
 
 body::after {
@@ -36,7 +35,7 @@ body::after {
 h1 {
     font-family: "Sixtyfour", "Courier New", monospace;
     color: #ffb642;
-    font-size: clamp(22px, 6vw, 64px);
+    font-size: 64px;
     font-weight: 400;
     letter-spacing: 0.08em;
     line-height: 1.5;
@@ -45,13 +44,39 @@ h1 {
     animation: phosphor 6s linear infinite;
 }
 
+#continue-prompt {
+    margin-top: 24px;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    text-align: center;
+    color: #ffb642;
+    text-shadow: 0 0 8px #ee930080;
+    animation: blink 1.2s steps(1, end) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
 @keyframes phosphor {
     0%, 94%, 96%, 100% { opacity: 1; }
     95% { opacity: 0.88; }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 600px) {
     h1 {
+        font-size: 28px;
+    }
+
+    #continue-prompt {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    h1, #continue-prompt {
         animation: none;
     }
 }
