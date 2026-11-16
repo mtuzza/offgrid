@@ -5,7 +5,23 @@
 }
 
 body {
-    background: #000;
+    background: #080602;
+    background-image: radial-gradient(ellipse at center, #211506 0%, #080602 65%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 2px,
+        rgba(0, 0, 0, 0.24) 2px,
+        rgba(0, 0, 0, 0.24) 4px
+    );
+    box-shadow: inset 0 0 15vw rgba(0, 0, 0, 0.7);
 }
 
 .container {
@@ -13,18 +29,29 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100svh;
+    padding: 24px;
 }
 
 h1 {
-    font-family: "Sixtyfour", sans-serif;
-    color: #C07000;
-    font-size: 50px;
+    font-family: "Sixtyfour", "Courier New", monospace;
+    color: #ffb642;
+    font-size: clamp(22px, 6vw, 64px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
     text-align: center;
-    animation: pulse 5s infinite;
+    text-shadow: 0 0 2px #ffe1a3, 0 0 12px #ee930080, 0 0 36px #c0700040;
+    animation: phosphor 6s linear infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { text-shadow: 0 0 10px #C07000, 0 0 20px #C07000; }
-    50% { text-shadow: 0 0 20px #C07000, 0 0 40px #C07000; }
+@keyframes phosphor {
+    0%, 94%, 96%, 100% { opacity: 1; }
+    95% { opacity: 0.88; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    h1 {
+        animation: none;
+    }
 }
