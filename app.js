@@ -11,3 +11,19 @@ function updateContinuePrompt() {
 updateContinuePrompt();
 
 window.addEventListener('resize', updateContinuePrompt);
+
+function hideIntro() {
+    document.querySelector('.container').style.visibility = 'hidden';
+}
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        hideIntro();
+    }
+});
+
+document.addEventListener('pointerdown', function (event) {
+    if (event.pointerType === 'touch') {
+        hideIntro();
+    }
+});
